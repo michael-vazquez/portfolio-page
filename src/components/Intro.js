@@ -1,5 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import profileImage from "./profile_image.jpg";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -7,11 +10,40 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     flexDirection: "column",
-  },
-  panel: {
     backgroundColor: theme.palette.primary.main,
-    position: "relative",
-    height: "100%",
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    margin: "auto",
+  },
+  column: {
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: "500px",
+  },
+  subtitle: {
+    color: theme.palette.primary.light,
+    marginBottom: theme.spacing(2),
+    // margin: "auto",
+    textAlign: "left",
+  },
+  name: {
+    color: theme.palette.primary.dark,
+    marginBottom: theme.spacing(1),
+    // margin: "auto",
+    textAlign: "left",
+  },
+  caption: {
+    color: theme.palette.primary.contrastText,
+    marginBottom: theme.spacing(2),
+    // margin: "auto",
+    textAlign: "left",
+  },
+  image: {
+    borderRadius: "50%",
+    height: "150px",
+    width: "150px",
   },
 }));
 
@@ -20,9 +52,35 @@ function Intro() {
 
   return (
     <div className={classes.container}>
-      <div className={classes.panel}>
-        <h2>First Component</h2>{" "}
+      <div className={classes.row}>
+        <div className={classes.column}>
+          <Typography variant="h3" className={classes.subtitle}>
+            Hey! My name is
+          </Typography>
+          <Typography variant="h2" className={classes.name}>
+            Michael Vazquez
+          </Typography>
+          <Typography variant="subtitle1" className={classes.caption}>
+            I am a full stack software developer based in Puerto Rico with 10+
+            years of experience in software development. Have worked in
+            enterprise and big scale applications in multiple industries like
+            aerospace, healthcare, finance and government.
+          </Typography>
+          <Typography variant="subtitle1" className={classes.caption}>
+            I am passionate about finding creative solutions to every day common
+            problems.
+          </Typography>
+          {/* <Typography variant="subtitle1" className={classes.caption}>
+            Strong knowledge in REST APIs, React framework, database design,
+            continuous integration pipelines, project and resource planning and
+            project estimates.
+          </Typography> */}
+        </div>
+        <div className={classes.column}>
+          <img className={classes.image} src={profileImage} alt="pic" />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
