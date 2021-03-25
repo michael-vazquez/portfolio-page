@@ -67,14 +67,9 @@ function Intro() {
             aerospace, healthcare, finance and government.
           </Typography>
           <Typography variant="subtitle1" className={classes.caption}>
-            I am passionate about finding creative solutions to every day common
-            problems.
+            I am passionate about finding creative solutions to every day
+            challenges.
           </Typography>
-          {/* <Typography variant="subtitle1" className={classes.caption}>
-            Strong knowledge in REST APIs, React framework, database design,
-            continuous integration pipelines, project and resource planning and
-            project estimates.
-          </Typography> */}
         </div>
         <div className={classes.column}>
           <img className={classes.image} src={profileImage} alt="pic" />

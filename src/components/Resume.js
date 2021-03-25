@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     maxWidth: "400px",
-    marginRight: theme.spacing(4),
+    marginRight: theme.spacing(6),
   },
   columnRight: {
     display: "flex",
@@ -66,7 +66,7 @@ function Resume() {
   return (
     <div className={classes.container}>
       <Typography variant="h3" className={classes.title}>
-        What I excel at
+        What I do
       </Typography>
       <div className={classes.row}>
         <div className={classes.column}>
