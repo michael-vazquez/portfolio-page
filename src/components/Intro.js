@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import profileImage from "./profile_image.jpg";
+import Header from "./Header";
 import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,11 +48,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Intro() {
+function Intro(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
+      <Header handlePageChange={props.handlePageChange} />
       <div className={classes.row}>
         <div className={classes.column}>
           <Typography variant="h3" className={classes.subtitle}>

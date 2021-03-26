@@ -29,10 +29,10 @@ function App() {
         onBeforePageScroll={handleBeforePageChange}
         customPageNumber={currentPage}
       >
-        <Intro />
-        <Resume />
-        <Experience />
-        <Contact />
+        <Intro handlePageChange={handlePageChange} />
+        <Resume handlePageChange={handlePageChange} />
+        <Experience handlePageChange={handlePageChange} />
+        <Contact handlePageChange={handlePageChange} />
       </ReactPageScroller>
     </ThemeProvider>
   );

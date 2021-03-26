@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, IconButton, Button } from "@material-ui/core";
+import Header from "./Header";
 import Footer from "./Footer";
 import SpringIcon from "./spring-framework.png";
 import ReactIcon from "./react.png";
@@ -13,6 +14,7 @@ import MaterialUiIcon from "./material-ui.png";
 import SqlServerIcon from "./sql-server.png";
 import PostgresIcon from "./postgresql.png";
 import MysqlIcon from "./mysql.png";
+import MsNetIcon from "./msnet.png";
 import SquibbIcon from "./squibb.png";
 import PrattIcon from "./pratt-whitney.svg";
 import MaxarIcon from "./maxar.png";
@@ -85,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Experience() {
+function Experience(props) {
   const classes = useStyles();
 
   const downloadResume = () => {
@@ -99,6 +101,7 @@ function Experience() {
 
   return (
     <div className={classes.container}>
+      <Header handlePageChange={props.handlePageChange} />
       <Typography variant="h3" className={classes.title}>
         Experience
       </Typography>
@@ -147,7 +150,7 @@ function Experience() {
               <img className={classes.subIcon} src={MysqlIcon} alt="pic" />
             </IconButton>
             <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={MaterialUiIcon} alt="pic" />
+              <img className={classes.subIcon} src={MsNetIcon} alt="pic" />
             </IconButton>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, IconButton } from "@material-ui/core";
+import Header from "./Header";
 import Footer from "./Footer";
 import WebIcon from "@material-ui/icons/Web";
 import StorageIcon from "@material-ui/icons/Storage";
@@ -60,11 +61,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Resume() {
+function Resume(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
+      <Header handlePageChange={props.handlePageChange} />
       <Typography variant="h3" className={classes.title}>
         What I do
       </Typography>

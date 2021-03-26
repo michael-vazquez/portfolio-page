@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Button } from "@material-ui/core";
 import contactImage from "./uyuni_image.jpg";
+import Header from "./Header";
 import Footer from "./Footer";
 import { ReactComponent as Bonfire } from "./bonfire.svg";
 
@@ -40,11 +41,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Contact() {
+function Contact(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
+      <Header handlePageChange={props.handlePageChange} />
       <div className={classes.center}>
         <Bonfire className={classes.bonfire} />
         <Typography variant="h3" className={classes.title}>
