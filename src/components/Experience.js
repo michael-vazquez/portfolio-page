@@ -112,7 +112,11 @@ function Experience(props) {
           </Typography>
           <div className={classes.row}>
             <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={SpringIcon} alt="pic" />
+              <img
+                className={classes.subIcon}
+                src={process.env.PUBLIC_URL + "/assets/spring-framework.png"}
+                alt="pic"
+              />
             </IconButton>
             <IconButton className={classes.icon}>
               <img className={classes.subIcon} src={LiquibaseIcon} alt="pic" />
