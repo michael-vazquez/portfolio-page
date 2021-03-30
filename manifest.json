@@ -1,6 +1,6 @@
 {
-  "short_name": "Michael Vazquez Profile Page",
-  "name": "Profile page for Michael Vazquez Perez",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
