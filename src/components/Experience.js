@@ -5,9 +5,11 @@ import {
   IconButton,
   Button,
   useMediaQuery,
+  Grid,
 } from "@material-ui/core";
 import Header from "./Header";
 import Footer from "./Footer";
+import Carousel from "react-material-ui-carousel";
 import SpringIcon from "./spring-framework.png";
 import ReactIcon from "./react.png";
 import DockerIcon from "./docker.png";
@@ -34,6 +36,9 @@ const useStyles = (smallMedia) =>
       flexDirection: "column",
       backgroundColor: theme.palette.primary.dark,
     },
+    root: {
+      flexGrow: 1,
+    },
     row: {
       display: "flex",
       flexDirection: "row",
@@ -42,13 +47,14 @@ const useStyles = (smallMedia) =>
     column: {
       display: "flex",
       flexDirection: "column",
-      maxWidth: "50%",
+      // maxWidth: "50%",
       marginRight: theme.spacing(20),
     },
     columnRight: {
       display: "flex",
       flexDirection: "column",
-      maxWidth: "50%",
+      // maxWidth: "50%",
+      marginRight: smallMedia ? theme.spacing(20) : "",
     },
     icon: {
       margin: "auto",
@@ -114,77 +120,286 @@ function Experience(props) {
         Experience
       </Typography>
       <div className={classes.row}>
-        <div className={classes.column}>
-          <Typography variant="h5" className={classes.caption}>
-            {smallMedia ? "Technologies:" : "Technologies I have worked with:"}
-          </Typography>
-          <div className={classes.row}>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={SpringIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={LiquibaseIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={SwaggerIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={JunitIcon} alt="pic" />
-            </IconButton>
-          </div>
-          <div className={classes.row}>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={ReactIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={MaterialUiIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={DockerIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={AzureIcon} alt="pic" />
-            </IconButton>
-          </div>
+        <Grid container className={classes.root} spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <div className={classes.column}>
+              <Typography variant="h5" className={classes.caption}>
+                {smallMedia
+                  ? "Technologies:"
+                  : "Technologies I have worked with:"}
+              </Typography>
+              {smallMedia ? (
+                <Carousel>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SpringIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={LiquibaseIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SwaggerIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={JunitIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={ReactIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MaterialUiIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={DockerIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={AzureIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SqlServerIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={PostgresIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MysqlIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MsNetIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                </Carousel>
+              ) : (
+                <>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SpringIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={LiquibaseIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SwaggerIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={JunitIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={ReactIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MaterialUiIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={DockerIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={AzureIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
 
-          <div className={classes.row}>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={SqlServerIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={PostgresIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={MysqlIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.icon}>
-              <img className={classes.subIcon} src={MsNetIcon} alt="pic" />
-            </IconButton>
-          </div>
-        </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SqlServerIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={PostgresIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MysqlIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.icon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MsNetIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                </>
+              )}
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <div className={classes.columnRight}>
+              <Typography variant="h5" className={classes.caption}>
+                {smallMedia ? "Companies:" : "Companies I have worked with:"}
+              </Typography>
+              {smallMedia ? (
+                <Carousel>
+                  <div className={classes.row}>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SquibbIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={PrattIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MaxarIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={ChurchillIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                </Carousel>
+              ) : (
+                <>
+                  <div className={classes.row}>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={SquibbIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={PrattIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
 
-        <div className={classes.columnRight}>
-          <Typography variant="h5" className={classes.caption}>
-            Companies I have worked with:
-          </Typography>
-          <div className={classes.row}>
-            <IconButton className={classes.companyIcon}>
-              <img className={classes.subIcon} src={SquibbIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.companyIcon}>
-              <img className={classes.subIcon} src={PrattIcon} alt="pic" />
-            </IconButton>
-          </div>
-
-          <div className={classes.row}>
-            <IconButton className={classes.companyIcon}>
-              <img className={classes.subIcon} src={MaxarIcon} alt="pic" />
-            </IconButton>
-            <IconButton className={classes.companyIcon}>
-              <img className={classes.subIcon} src={ChurchillIcon} alt="pic" />
-            </IconButton>
-          </div>
-        </div>
+                  <div className={classes.row}>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={MaxarIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                    <IconButton className={classes.companyIcon}>
+                      <img
+                        className={classes.subIcon}
+                        src={ChurchillIcon}
+                        alt="pic"
+                      />
+                    </IconButton>
+                  </div>
+                </>
+              )}
+            </div>
+          </Grid>
+        </Grid>
       </div>
       <Button
         size="medium"
