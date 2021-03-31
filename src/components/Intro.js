@@ -1,55 +1,60 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Typography, useMediaQuery } from "@material-ui/core";
 import profileImage from "./profile_image.jpg";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: theme.palette.primary.main,
-  },
-  row: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "auto",
-  },
-  column: {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "500px",
-  },
-  subtitle: {
-    color: theme.palette.primary.light,
-    marginBottom: theme.spacing(2),
-    // margin: "auto",
-    textAlign: "left",
-  },
-  name: {
-    color: theme.palette.primary.dark,
-    marginBottom: theme.spacing(1),
-    // margin: "auto",
-    textAlign: "left",
-  },
-  caption: {
-    color: theme.palette.primary.contrastText,
-    marginBottom: theme.spacing(2),
-    // margin: "auto",
-    textAlign: "left",
-  },
-  image: {
-    borderRadius: "50%",
-    height: "150px",
-    width: "150px",
-  },
-}));
+const useStyles = (smallMedia) =>
+  makeStyles((theme) => ({
+    container: {
+      height: "100%",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: theme.palette.primary.main,
+    },
+    row: {
+      display: "flex",
+      flexDirection: "row",
+      margin: "auto",
+    },
+    column: {
+      display: "flex",
+      flexDirection: "column",
+      maxWidth: "500px",
+    },
+    subtitle: {
+      color: theme.palette.primary.light,
+      marginBottom: theme.spacing(2),
+      textAlign: "left",
+      fontSize: smallMedia ? "2rem" : "",
+      marginLeft: smallMedia ? theme.spacing(1) : "",
+    },
+    name: {
+      color: theme.palette.primary.dark,
+      marginBottom: smallMedia ? theme.spacing(2) : theme.spacing(1),
+      textAlign: "left",
+      fontSize: smallMedia ? "2.80rem" : "",
+      marginLeft: smallMedia ? theme.spacing(1) : "",
+    },
+    caption: {
+      color: theme.palette.primary.contrastText,
+      marginBottom: theme.spacing(2),
+      textAlign: "left",
+      marginLeft: smallMedia ? theme.spacing(1) : "",
+    },
+    image: {
+      borderRadius: "50%",
+      height: "150px",
+      width: "150px",
+    },
+  }));
 
 function Intro(props) {
-  const classes = useStyles();
+  const theme = useTheme();
+  const smallMedia = useMediaQuery(theme.breakpoints.down("xs"));
+  const classes = useStyles(smallMedia)();
 
   return (
     <div className={classes.container}>
@@ -73,11 +78,13 @@ function Intro(props) {
             challenges.
           </Typography>
         </div>
-        <div className={classes.column}>
-          <img className={classes.image} src={profileImage} alt="pic" />
-        </div>
+        {!smallMedia ? (
+          <div className={classes.column}>
+            <img className={classes.image} src={profileImage} alt="pic" />
+          </div>
+        ) : null}
       </div>
-      <Footer />
+      {!smallMedia ? <Footer /> : null}
     </div>
   );
 }

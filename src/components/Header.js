@@ -43,7 +43,7 @@ function Header(props) {
   const classes = useStyles();
 
   const theme = useTheme();
-  const smallMedia = useMediaQuery(theme.breakpoints.down("sm"));
+  const smallMedia = useMediaQuery(theme.breakpoints.down("xs"));
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 

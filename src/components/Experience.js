@@ -1,6 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Typography, IconButton, Button } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import {
+  Typography,
+  IconButton,
+  Button,
+  useMediaQuery,
+} from "@material-ui/core";
 import Header from "./Header";
 import Footer from "./Footer";
 import SpringIcon from "./spring-framework.png";
@@ -20,75 +25,78 @@ import PrattIcon from "./pratt-whitney.svg";
 import MaxarIcon from "./maxar.png";
 import ChurchillIcon from "./churchill.png";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: theme.palette.primary.dark,
-  },
-  row: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "auto",
-  },
-  column: {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "50%",
-    marginRight: theme.spacing(20),
-  },
-  columnRight: {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "50%",
-  },
-  icon: {
-    margin: "auto",
-    width: "125px",
-    height: "125px",
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(0),
-    marginLeft: theme.spacing(0),
-  },
-  companyIcon: {
-    margin: "auto",
-    width: "200px",
-    height: "200px",
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(0),
-    marginLeft: theme.spacing(0),
-  },
-  subIcon: {
-    height: "100%",
-    width: "100%",
-  },
-  subtitle: {
-    color: theme.palette.primary.light,
-    marginBottom: theme.spacing(2),
-    textAlign: "left",
-  },
-  title: {
-    color: theme.palette.primary.contrastText,
-    marginTop: theme.spacing(8),
-    textAlign: "center",
-  },
-  caption: {
-    color: theme.palette.primary.contrastText,
-    textAlign: "center",
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(2),
-    marginLeft: theme.spacing(0),
-  },
-  button: {
-    marginTop: theme.spacing(1),
-    margin: "auto",
-  },
-}));
+const useStyles = (smallMedia) =>
+  makeStyles((theme) => ({
+    container: {
+      height: "100%",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: theme.palette.primary.dark,
+    },
+    row: {
+      display: "flex",
+      flexDirection: "row",
+      margin: "auto",
+    },
+    column: {
+      display: "flex",
+      flexDirection: "column",
+      maxWidth: "50%",
+      marginRight: theme.spacing(20),
+    },
+    columnRight: {
+      display: "flex",
+      flexDirection: "column",
+      maxWidth: "50%",
+    },
+    icon: {
+      margin: "auto",
+      width: "125px",
+      height: "125px",
+      marginTop: theme.spacing(0),
+      marginBottom: theme.spacing(0),
+      marginLeft: theme.spacing(0),
+    },
+    companyIcon: {
+      margin: "auto",
+      width: "200px",
+      height: "200px",
+      marginTop: theme.spacing(0),
+      marginBottom: theme.spacing(0),
+      marginLeft: theme.spacing(0),
+    },
+    subIcon: {
+      height: "100%",
+      width: "100%",
+    },
+    subtitle: {
+      color: theme.palette.primary.light,
+      marginBottom: theme.spacing(2),
+      textAlign: "left",
+    },
+    title: {
+      color: theme.palette.primary.contrastText,
+      marginTop: theme.spacing(8),
+      textAlign: "center",
+    },
+    caption: {
+      color: theme.palette.primary.contrastText,
+      textAlign: smallMedia ? "left" : "center",
+      marginTop: theme.spacing(0),
+      marginBottom: theme.spacing(2),
+      marginLeft: smallMedia ? theme.spacing(2) : theme.spacing(0),
+    },
+    button: {
+      marginTop: theme.spacing(1),
+      margin: "auto",
+    },
+  }));
 
 function Experience(props) {
-  const classes = useStyles();
+  const theme = useTheme();
+  const smallMedia = useMediaQuery(theme.breakpoints.down("xs"));
+  const classes = useStyles(smallMedia)();
 
   const downloadResume = () => {
     const link = document.createElement("a");
@@ -108,7 +116,7 @@ function Experience(props) {
       <div className={classes.row}>
         <div className={classes.column}>
           <Typography variant="h5" className={classes.caption}>
-            Technologies I have worked with:
+            {smallMedia ? "Technologies:" : "Technologies I have worked with:"}
           </Typography>
           <div className={classes.row}>
             <IconButton className={classes.icon}>
@@ -189,7 +197,7 @@ function Experience(props) {
       >
         Download Resume
       </Button>
-      <Footer />
+      {!smallMedia ? <Footer /> : null}
     </div>
   );
 }
