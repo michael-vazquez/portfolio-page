@@ -47,13 +47,11 @@ const useStyles = (smallMedia) =>
     column: {
       display: "flex",
       flexDirection: "column",
-      // maxWidth: "50%",
       marginRight: theme.spacing(20),
     },
     columnRight: {
       display: "flex",
       flexDirection: "column",
-      // maxWidth: "50%",
       marginRight: smallMedia ? theme.spacing(20) : "",
     },
     icon: {
