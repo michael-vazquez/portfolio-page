@@ -24,7 +24,7 @@ const useStyles = (smallMedia) =>
       display: "flex",
       flexDirection: "row",
       margin: "auto",
-      marginTop: smallMedia ? theme.spacing(17) : theme.spacing(20),
+      marginTop: smallMedia ? theme.spacing(10) : theme.spacing(20),
     },
     column: {
       display: "flex",

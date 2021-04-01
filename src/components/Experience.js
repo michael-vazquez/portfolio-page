@@ -58,16 +58,16 @@ const useStyles = (smallMedia) =>
     },
     icon: {
       margin: "auto",
-      width: "125px",
-      height: "125px",
+      width: smallMedia ? "100px" : "125px",
+      height: smallMedia ? "100px" : "125px",
       marginTop: theme.spacing(0),
       marginBottom: theme.spacing(0),
       marginLeft: theme.spacing(0),
     },
     companyIcon: {
       margin: "auto",
-      width: "200px",
-      height: "200px",
+      width: smallMedia ? "150px" : "200px",
+      height: smallMedia ? "150px" : "200px",
       marginTop: theme.spacing(0),
       marginBottom: theme.spacing(0),
       marginLeft: theme.spacing(0),
@@ -83,19 +83,23 @@ const useStyles = (smallMedia) =>
     },
     title: {
       color: theme.palette.primary.contrastText,
-      marginTop: theme.spacing(8),
+      marginTop: smallMedia ? theme.spacing(2) : theme.spacing(8),
       textAlign: "center",
     },
     caption: {
       color: theme.palette.primary.contrastText,
       textAlign: smallMedia ? "left" : "center",
-      marginTop: theme.spacing(0),
+      marginTop: smallMedia ? theme.spacing(1) : theme.spacing(0),
       marginBottom: theme.spacing(2),
       marginLeft: smallMedia ? theme.spacing(2) : theme.spacing(0),
     },
     button: {
-      marginTop: theme.spacing(1),
+      marginTop: smallMedia ? theme.spacing(0) : theme.spacing(1),
       margin: "auto",
+    },
+    carousel: {
+      width: "100%",
+      marginLeft: theme.spacing(2),
     },
   }));
 
@@ -129,7 +133,7 @@ function Experience(props) {
                   : "Technologies I have worked with:"}
               </Typography>
               {smallMedia ? (
-                <Carousel>
+                <Carousel className={classes.carousel}>
                   <div className={classes.row}>
                     <IconButton className={classes.icon}>
                       <img
@@ -326,7 +330,7 @@ function Experience(props) {
                 {smallMedia ? "Companies:" : "Companies I have worked with:"}
               </Typography>
               {smallMedia ? (
-                <Carousel>
+                <Carousel className={classes.carousel}>
                   <div className={classes.row}>
                     <IconButton className={classes.companyIcon}>
                       <img
@@ -402,12 +406,10 @@ function Experience(props) {
         </Grid>
       </div>
       <Button
-        size="medium"
+        size={smallMedia ? "small" : "medium"}
         type="submit"
         variant="contained"
-        // color="dark"
         className={classes.button}
-        // href="/resume.pdf"
         onClick={() => downloadResume()}
       >
         Download Resume
